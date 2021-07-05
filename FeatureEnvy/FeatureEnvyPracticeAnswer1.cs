@@ -57,12 +57,7 @@ namespace FeatureEnvyAnswer1
 
 		public bool IsValidMemberInformation()
 		{
-			var isValidUsername = IsValidUsername(Username);
-			var isValidPassword = IsValidPassword(Password);
-			var isValidEmail = IsValidEmail(Email);
-			var isValidLocation = IsValidLocation(Ip);
-			var isCorrectPassword = IsCorrectPassword(Password);
-			return isValidUsername && isValidPassword && isValidEmail && isValidLocation && isCorrectPassword;
+			return IsValidUsername(Username) && IsValidPassword(Password) && IsValidEmail(Email) && IsValidLocation(Ip) && IsCorrectPassword(Password);
 		}
 
 	}
