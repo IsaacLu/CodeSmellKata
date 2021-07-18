@@ -5,8 +5,6 @@ namespace PrimitiveObsessionTests
 {
 	public class FakeControllerTests
 	{
-		private const string targetUrl = "https://www.github.com/hwchw/CodeSmellKata";
-
 		[Test]
 		public void Login_When_Enter_Wrong_Currency_Length_Should_Return_Error()
 		{
