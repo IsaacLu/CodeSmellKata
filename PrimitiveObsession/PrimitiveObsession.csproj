@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\UserLoginResponse.cs" />
     <Compile Include="PrimitiveObsessionAnswer.cs" />
     <Compile Include="PrimitiveObsessionPractice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

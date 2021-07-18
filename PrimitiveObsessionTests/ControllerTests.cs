@@ -5,29 +5,21 @@ namespace PrimitiveObsessionTests
 {
 	public class ControllerTests
 	{
-		private const string targetUrl = "https://www.github.com/hwchw/CodeSmellKata";
-
 		[Test]
 		public void When_Login_Should_Return_ErrorCode_0()
 		{
-			var target = new Controller();
-			var actual = target.Login("", targetUrl).ErrorCode;
-			Assert.AreEqual(0, actual);
-		}
-
-		[Test]
-		public void When_Login1_Should_Return_ErrorCode_0()
-		{
-			var target = new Controller();
-			var actual = target.Login1("", targetUrl).ErrorCode;
-			Assert.AreEqual(0, actual);
-		}
-
-		[Test]
-		public void When_Login2_Should_Return_ErrorCode_0()
-		{
-			var target = new Controller();
-			var actual = target.Login2("", targetUrl).ErrorCode;
+			var target = new MemberService();
+			var actual = target.UserRegister(new UserRegisterRequest()
+			{
+				Currency = "TWD",
+				Email = "codesmell@smell.com",
+				Ip = "127.0.0.1",
+				LoginUrl = "www.codesmellhello.io",
+				Username = "codesmellTry123123123",
+				Password = "codesmellTry123123666",
+				Referral = "nicesmellTry123123",
+				WebId = 18763
+			}).ErrorCode;
 			Assert.AreEqual(0, actual);
 		}
 	}

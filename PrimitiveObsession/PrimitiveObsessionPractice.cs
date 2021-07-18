@@ -1,57 +1,108 @@
-﻿using PrimitiveObsession.Model;
-
-namespace PrimitiveObsession
+﻿namespace PrimitiveObsession
 {
 	internal class PrimitiveObsessionPractice
 	{
 		internal static void Main(string[] args)
 		{
-			//
-			//這個練習，主要是在練習如果一開始就用基礎型別接，那後續會產生的影響
-			//簡單說就是體驗 CodeSmell: PrimitiveObsession
-			//
 		}
 	}
 
-	public class Controller
+	public class MemberService
 	{
-		public UserLoginResponse Login(string user, string loginFrom)
+		public UserRegisterResponse UserRegister(UserRegisterRequest req)
 		{
-			//請嘗試不使用預設物件
-			//var tryNotToUseThisWay= new Uri(url);
+			//請嘗試驗證:使用者名稱(Username)長度需要於 6-20 碼之間
+			//代碼寫這
 
-			return GetProtocol(loginFrom) == "https" || GetSubDomain(loginFrom) == "www"
-				? new UserLoginResponse(0)
-				: new UserLoginResponse(1);
+			//請嘗試驗證:使用者密碼(Password)長度需要於 20-25 碼之間
+			//代碼寫這
+
+			//請嘗試驗證:貨幣(Currency)必須要是三個字元(e.g. TWD), 而且只能支援 TWD, MYR
+			//代碼寫這
+
+			//請嘗試驗證:介紹人(Referral) 名稱長度需要於 6-14 碼之間
+			//代碼寫這
+
+			//請嘗試驗證:電子信箱(Email) 必須且只能有 1 個 @ 符號
+			//代碼寫這
+
+			//請嘗試驗證:FirstName 不能等於 LastName 且兩者都不能為空字串
+			//代碼寫這
+
+			//請嘗試將 ip 換成地區，並且將地區指定到 UserRegisterRequest.CountryCode
+			//因為不是主要目的，所以簡單一些，ip = 127.0.0.1 = "TW" 其他就設定為"MY" 
+
+			//請嘗試驗證:地區必須要符合貨幣 MYR 只能在 MY 使用, TWD 只能在 TW 使用
+			//代碼寫這
+
+			//以上如果有驗證沒通過都回傳  new UserRegisterResponse(1);
+
+			return new UserRegisterResponse(0);
 		}
-		public UserLoginResponse Login1(string user, string loginFrom)
+
+		public UserLoginResponse UserLogin(UserLoginRequest req)
 		{
-			//請嘗試不使用預設物件
-			//var tryNotToUseThisWay= new Uri(url);
-			//Step 3-1: 如果不用在這個 Class 當中的方法，請寫下，或想想看還有哪些方法可以用，或是那些位置可以放
+			//Step1 請嘗試驗證:使用者名稱(Username)長度需要於 6-20 碼之間
+			//代碼寫這
+
+			//Step2 請嘗試驗證:使用者密碼(Password)長度需要於 20-25 碼之間
+			//代碼寫這
+
+			//請嘗試將 ip 換成地區，並且將地區指定到 UserLoginRequest.CountryCode
+
+			//請嘗試驗證:地區必須要符合貨幣 MYR 只能在 MY 使用, TWD 只能在 TW 使用
+			//代碼寫這
+
 			return new UserLoginResponse(0);
 		}
-		public UserLoginResponse Login2(string user, string loginFrom)
-		{
-			//請嘗試不使用預設物件
-			//var tryNotToUseThisWay= new Uri(url);
-
-			//Step 3-2: 如果不用在這個 Class 當中的方法，請寫下，或想想看還有哪些方法可以用，或是那些位置可以放
-			return new UserLoginResponse(0);
-		}
-
-		public static string GetProtocol(string url)
-		{
-			// Step 1: 嘗試透過解析 targetUrl 來拿到 Protocol 並且把 https 更換成你解析出的結果後跑看看結果
-			return "https";
-		}
-
-		public string GetSubDomain(string url)
-		{
-			//Step 2: 嘗試透過解析 targetUrl 來拿到 SubDomain 並且把 www 更換成你解析出的結果後跑看看結果
-			return "www";
-		}
-
-		//Step 4: 想想看，這時候如果你還想要在 Login 時，驗證 loginFrom 是不是一個有效的 URL ，你會怎麼寫呢?
 	}
+
+	public class UserLoginResponse
+	{
+		public int ErrorCode { get; }
+		public UserLoginResponse(int errorCode)
+		{
+			ErrorCode = errorCode;
+		}
+	}
+
+	public class UserLoginRequest
+	{
+		public int WebId { get; set; }
+		public string Username { get; set; }
+		public string Password { get; set; }
+	}
+
+	public class UserRegisterRequest
+	{
+		public int WebId { get; set; }
+		public string Username { get; set; }
+		public string Password { get; set; }
+		public string Currency { get; set; }
+		public string Referral { get; set; }
+		public string Ip { get; set; }
+		public string LoginUrl { get; set; }
+		public string Email { get; set; }
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
+		public string CountryCode { get; set; }
+	}
+
+	public class UserRegisterResponse
+	{
+		public int ErrorCode { get; }
+		public UserRegisterResponse(int errorCode)
+		{
+			ErrorCode = errorCode;
+		}
+		public string Username { get; set; }
+		public string LoginName { get; set; }
+		public int CustomerId { get; set; }
+		public int ParentId { get; set; }
+		public string Currency { get; set; }
+		public decimal Points { get; set; }
+		public long OnlineId { get; set; }
+		public int AccountType { get; set; }
+	}
+
 }

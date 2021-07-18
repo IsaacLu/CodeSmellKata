@@ -1,76 +1,138 @@
-﻿using PrimitiveObsession.Model;
+﻿using System.Linq;
 
-namespace PrimitiveObsession
+namespace PrimitiveObsessionFake
 {
 	internal class PrimitiveObsessionAnswer
 	{
-		internal static void FakeMain(string[] args)
+		internal static void MainAnswer(string[] args)
 		{
 		}
 	}
 
-	public class FakeController
+	public class MemberService
 	{
-		public UserLoginResponse Login(string user, string loginFrom)
+		public UserRegisterResponse UserRegister(UserRegisterRequest req)
 		{
-			//方法 1: 在同一處建立方法得到答案
-			return GetProtocol(loginFrom) == "https" && GetSubDomain(loginFrom) == "www"
-				? new UserLoginResponse(0)
-				: new UserLoginResponse(1);
+			if (!(req.Username.Length >= 6 && req.Username.Length <= 20))
+			{
+				return new UserRegisterResponse(1);
+			}
+
+			if (!(req.Password.Length >= 20 && req.Password.Length <= 25))
+			{
+				return new UserRegisterResponse(1);
+			}
+
+			if (!(req.Currency.Length == 3))
+			{
+				return new UserRegisterResponse(1);
+			}
+
+			if (!(req.Referral.Length >= 6 && req.Referral.Length <= 20))
+			{
+				return new UserRegisterResponse(1);
+			}
+
+			if (!(req.Email.Count(w => w == '@')==1))
+			{
+				return new UserRegisterResponse(1);
+			}
+
+			if (!(!string.IsNullOrEmpty(req.FirstName) && !string.IsNullOrEmpty(req.LastName)&& req.FirstName != req.LastName))
+			{
+				return new UserRegisterResponse(1);
+			}
+
+			req.CountryCode = GetCountryCodeByIp(req.Ip);
+
+			if (!((req.Currency == "TWD" && req.CountryCode == "TW") || (req.Currency == "MYR" && req.CountryCode == "MY")))
+			{
+				return new UserRegisterResponse(1);
+			}
+
+			return new UserRegisterResponse(0);
 		}
 
-		public UserLoginResponse Login1(string user, string loginFrom)
+		private string GetCountryCodeByIp(string ip)
 		{
-			//方法 2: 利用擴充方法得到答案
-			return loginFrom.GetProtocolByExtensionMethod() == "https" && loginFrom.GetSubDomainByExtensionMethod() == "www"
-				? new UserLoginResponse(0)
-				: new UserLoginResponse(1);
+			return (ip=="127.0.0.1")?"TW":"MY";
 		}
 
-		public UserLoginResponse Login2(string user, string loginFrom)
+		public UserLoginResponse UserLogin(UserLoginRequest req)
 		{
-			//方法 3: 利用自創幫手類別，方法寫在這個當中得到答案
-			return UrlHelperClass.GetProtocolByHelperClass(loginFrom) == "https" || UrlHelperClass.GetSubDomainByHelperClass(loginFrom) == "www"
-				? new UserLoginResponse(0)
-				: new UserLoginResponse(1);
-		}
+			const string currencyFromDb = "TWD";
 
-		public static string GetProtocol(string url)
-		{
-			return url.Split(':')[0]; ;
-		}
+			if (!(req.Username.Length >= 6 && req.Username.Length <= 20))
+			{
+				return new UserLoginResponse(1);
+			}
 
-		public string GetSubDomain(string url)
-		{
-			return url.Split('.')[0].Split('/')[2];
+			if (!(req.Username.Length >= 20 && req.Username.Length <= 25))
+			{
+				return new UserLoginResponse(1);
+			}
+			req.CountryCode = GetCountryCodeByIp(req.Ip);
+
+			if (!(currencyFromDb == "TWD" && req.CountryCode == "TW" || currencyFromDb == "MYR" && req.CountryCode == "MY"))
+			{
+				return new UserLoginResponse(1);
+			}
+
+			return new UserLoginResponse(0);
 		}
 	}
 
-	internal static class UrlHelper
+
+	public class UserLoginResponse
 	{
-		internal static string GetProtocolByExtensionMethod(this string url)
+		public int ErrorCode { get; }
+		public UserLoginResponse(int errorCode)
 		{
-			return url.Split(':')[0];
-		}
-
-		internal static string GetSubDomainByExtensionMethod(this string url)
-		{
-			return url.Split('.')[0].Split('/')[2];
+			ErrorCode = errorCode;
 		}
 	}
 
-	internal static class UrlHelperClass
+	public class UserLoginRequest
 	{
-		internal static string GetProtocolByHelperClass(string url)
-		{
-			return url.Split(':')[0];
-		}
-
-		internal static string GetSubDomainByHelperClass(string url)
-		{
-			return url.Split('.')[0].Split('/')[2];
-		}
+		public int WebId { get; set; }
+		public string Username { get; set; }
+		public string Password { get; set; }
+		public string CountryCode { get; set; }
+		public string Ip { get; set; }
 	}
+
+	public class UserRegisterRequest
+	{
+		public int WebId { get; set; }
+		public string Username { get; set; }
+		public string Password { get; set; }
+		public string Currency { get; set; }
+		public string Referral { get; set; }
+		public string Ip { get; set; }
+		public string LoginUrl { get; set; }
+		public string Email { get; set; }
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
+		public string CountryCode { get; set; }
+	}
+
+	public class UserRegisterResponse
+	{
+		public int ErrorCode { get; }
+		public UserRegisterResponse(int errorCode)
+		{
+			ErrorCode = errorCode;
+		}
+		public string Username { get; set; }
+		public string LoginName { get; set; }
+		public int CustomerId { get; set; }
+		public int ParentId { get; set; }
+		public string Currency { get; set; }
+		public decimal Points { get; set; }
+		public long OnlineId { get; set; }
+		public int AccountType { get; set; }
+	}
+
 
 	//問題 : 這不就是差在方法寫在哪邊的差異而已嗎?
 
