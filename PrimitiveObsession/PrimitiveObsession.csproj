@@ -50,5 +50,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="PracticeImangeAndReferences\Step1_ImplementToSeeTheFirstLook.jpg" />
+    <Content Include="PracticeImangeAndReferences\Step1_LookLikeThis.txt" />
+    <Content Include="PracticeImangeAndReferences\Step2_LookLikeThis.txt" />
+    <Content Include="PracticeImangeAndReferences\Step2_TryToUseHelperClassToDealWithUsernamPasswordAuthentication.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

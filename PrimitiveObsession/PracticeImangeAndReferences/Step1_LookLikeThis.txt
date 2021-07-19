@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 
 namespace PrimitiveObsessionFake
 {
@@ -13,12 +13,12 @@ namespace PrimitiveObsessionFake
 	{
 		public UserRegisterResponse UserRegister(UserRegisterRequest req)
 		{
-			if (MemberAuthenticationHelper.IsValidUsername(req.Username))
+			if (!(req.Username.Length >= 6 && req.Username.Length <= 20))
 			{
 				return new UserRegisterResponse(1);
 			}
 
-			if (MemberAuthenticationHelper.IsValidPassword(req.Password))
+			if (!(req.Password.Length >= 20 && req.Password.Length <= 25))
 			{
 				return new UserRegisterResponse(1);
 			}
@@ -62,12 +62,12 @@ namespace PrimitiveObsessionFake
 		{
 			const string currencyFromDb = "TWD";
 
-			if (MemberAuthenticationHelper.IsValidUsername(req.Username))
+			if (!(req.Username.Length >= 6 && req.Username.Length <= 20))
 			{
 				return new UserLoginResponse(1);
 			}
 
-			if (MemberAuthenticationHelper.IsValidPassword(req.Password))
+			if (!(req.Username.Length >= 20 && req.Username.Length <= 25))
 			{
 				return new UserLoginResponse(1);
 			}
@@ -79,19 +79,6 @@ namespace PrimitiveObsessionFake
 			}
 
 			return new UserLoginResponse(0);
-		}
-	}
-
-	public class MemberAuthenticationHelper
-	{
-		public static bool IsValidUsername(string username)
-		{
-			return !(username.Length >= 6 && username.Length <= 20);
-		}
-
-		public static bool IsValidPassword(string password)
-		{
-			return !(password.Length >= 20 && password.Length <= 25);
 		}
 	}
 
