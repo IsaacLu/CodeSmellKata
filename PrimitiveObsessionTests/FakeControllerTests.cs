@@ -14,9 +14,12 @@ namespace PrimitiveObsessionTests
 				Currency = "TWDA",
 				Email = "codesmell@smell.com",
 				Ip = "127.0.0.1",
-				LoginUrl = "www.codesmellhello.io",
-				Username = "codesmellTry",
-				Password = "codesmellTry123123666",
+				LoginUrl = "www.codesmellhello.io", 
+				User = new Member()
+				{
+					Username = "codesmellTry",
+					Password = "codesmellTry123123666",
+				},
 				Referral = "nicesmellTry",
 				FirstName = "codesmell",
 				LastName = "smellBad",
@@ -35,8 +38,11 @@ namespace PrimitiveObsessionTests
 				Email = "codesmell@smell.com",
 				Ip = "127.0.0.1",
 				LoginUrl = "www.codesmellhello.io",
-				Username = "code1",
-				Password = "codesmellTry123123666",
+				User = new Member()
+				{
+					Username = "code1",
+					Password = "codesmellTry123123666",
+				},
 				Referral = "nicesmellTry",
 				FirstName = "codesmell",
 				LastName = "smellBad",
@@ -55,8 +61,11 @@ namespace PrimitiveObsessionTests
 				Email = "codesmell@smell.com",
 				Ip = "127.0.0.1",
 				LoginUrl = "www.codesmellhello.io",
-				Username = "codesmellTry123123666",
-				Password = "codesmellTry123123666",
+				User = new Member()
+				{
+					Username = "codesmellTry123123666123",
+					Password = "codesmellTry123123666",
+				},
 				Referral = "nicesmellTry",
 				FirstName = "codesmell",
 				LastName = "smellBad",
@@ -75,8 +84,11 @@ namespace PrimitiveObsessionTests
 				Email = "codesmell@smell.com",
 				Ip = "127.0.0.1",
 				LoginUrl = "www.codesmellhello.io",
-				Username = "codesmell",
-				Password = "codesmellTry123123666",
+				User = new Member()
+				{
+					Username = "codesmell",
+					Password = "codesmellTry123123666",
+				},
 				Referral = "nices",
 				FirstName = "codesmell",
 				LastName = "smellBad",
@@ -95,8 +107,12 @@ namespace PrimitiveObsessionTests
 				Email = "codesmell@smell.com",
 				Ip = "127.0.0.1",
 				LoginUrl = "www.codesmellhello.io",
-				Username = "codesmell",
-				Password = "codesmellTry123123666",
+
+				User = new Member()
+				{
+					Username = "codesmell",
+					Password = "codesmellTry123123666",
+				},
 				Referral = "codesmellTry123123666",
 				FirstName = "codesmell",
 				LastName = "smellBad",
@@ -115,8 +131,11 @@ namespace PrimitiveObsessionTests
 				Email = "codesmellsmell.com",
 				Ip = "127.0.0.1",
 				LoginUrl = "www.codesmellhello.io",
-				Username = "codesmellTry",
-				Password = "codesmellTry123123666",
+				User = new Member()
+				{
+					Username = "codesmellTry",
+					Password = "codesmellTry123123666",
+				},
 				Referral = "nicesmellTry",
 				FirstName = "codesmell",
 				LastName = "smellBad",
@@ -135,8 +154,11 @@ namespace PrimitiveObsessionTests
 				Email = "codesmell@smell@.com",
 				Ip = "127.0.0.1",
 				LoginUrl = "www.codesmellhello.io",
-				Username = "codesmellTry",
-				Password = "codesmellTry123123666",
+				User = new Member()
+				{
+					Username = "codesmellTry",
+					Password = "codesmellTry123123666",
+				},
 				Referral = "nicesmellTry",
 				FirstName = "codesmell",
 				LastName = "smellBad",
@@ -155,8 +177,11 @@ namespace PrimitiveObsessionTests
 				Email = "codesmell@smell.com",
 				Ip = "127.0.0.1",
 				LoginUrl = "www.codesmellhello.io",
-				Username = "codesmellTry",
-				Password = "codesmellTry123123666",
+				User = new Member()
+				{
+					Username = "codesmellTry",
+					Password = "codesmellTry123123666",
+				},
 				Referral = "nicesmellTry",
 				FirstName = "",
 				LastName = "smellBad",
@@ -175,8 +200,11 @@ namespace PrimitiveObsessionTests
 				Email = "codesmell@smell.com",
 				Ip = "127.0.0.1",
 				LoginUrl = "www.codesmellhello.io",
-				Username = "codesmellTry",
-				Password = "codesmellTry123123666",
+				User = new Member()
+				{
+					Username = "codesmellTry",
+					Password = "codesmellTry123123666",
+				},
 				Referral = "nicesmellTry",
 				FirstName = "smellBad",
 				LastName = "",
@@ -195,8 +223,11 @@ namespace PrimitiveObsessionTests
 				Email = "codesmell@smell.com",
 				Ip = "127.0.0.1",
 				LoginUrl = "www.codesmellhello.io",
-				Username = "codesmellTry",
-				Password = "codesmellTry123123666",
+				User = new Member()
+				{
+					Username = "codesmellTry",
+					Password = "codesmellTry123123666",
+				},
 				Referral = "nicesmellTry",
 				FirstName = "smellBad",
 				LastName = "smellBad",
@@ -215,8 +246,11 @@ namespace PrimitiveObsessionTests
 				Email = "codesmell@smell.com",
 				Ip = "127.0.0.1",
 				LoginUrl = "www.codesmellhello.io",
-				Username = "codesmellTry",
-				Password = "codesmellTry123123666",
+				User = new Member()
+				{
+					Username = "codesmellTry",
+					Password = "codesmellTry123123666",
+				},
 				Referral = "nicesmellTry",
 				FirstName = "codesmell",
 				LastName = "smellBad",
@@ -236,8 +270,11 @@ namespace PrimitiveObsessionTests
 				Email = "codesmell@smell.com",
 				Ip = "129.0.0.1",
 				LoginUrl = "www.codesmellhello.io",
-				Username = "codesmellTry",
-				Password = "codesmellTry123123666",
+				User = new Member()
+				{
+					Username = "codesmellTry",
+					Password = "codesmellTry123123666",
+				},
 				Referral = "nicesmellTry",
 				FirstName = "codesmell",
 				LastName = "smellBad",
@@ -257,8 +294,11 @@ namespace PrimitiveObsessionTests
 				Email = "codesmell@smell.com",
 				Ip = "127.0.0.1",
 				LoginUrl = "www.codesmellhello.io",
-				Username = "codesmellTry",
-				Password = "codesmellTry123123666",
+				User = new Member()
+				{
+					Username = "codesmellTry",
+					Password = "codesmellTry123123666",
+				},
 				Referral = "nicesmellTry",
 				FirstName = "codesmell",
 				LastName = "smellBad",

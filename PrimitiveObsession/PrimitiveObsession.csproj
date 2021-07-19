@@ -58,6 +58,9 @@
     <Content Include="PracticeImangeAndReferences\Step2_TryToUseHelperClassToDealWithUsernamPasswordAuthentication.jpg" />
     <Content Include="PracticeImangeAndReferences\Step3_AddChangePasswordApi.jpg" />
     <Content Include="PracticeImangeAndReferences\Step3_LookLikeThis.txt" />
+    <Content Include="PracticeImangeAndReferences\Step4_Reflection.txt" />
+    <Content Include="PracticeImangeAndReferences\Step5_LookLikeThis.txt" />
+    <Content Include="PracticeImangeAndReferences\Step6_HowToDealWithChangePassword.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
